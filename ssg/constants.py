@@ -5,6 +5,7 @@ import datetime
 import os.path
 
 product_directories = [
+    'amazonlinux2',
     'chromium',
     'debian9', 'debian10',
     'example',
@@ -21,7 +22,7 @@ product_directories = [
     'rhosp10', 'rhosp13',
     'rhv4',
     'sle12', 'sle15',
-    'ubuntu1604', 'ubuntu1804',
+    'ubuntu1604', 'ubuntu1804', 'ubuntu2004',
     'vsel',
     'wrlinux8', 'wrlinux1019'
 ]
@@ -79,7 +80,7 @@ XCCDF12_NS = "http://checklists.nist.gov/xccdf/1.2"
 min_ansible_version = "2.5"
 ansible_version_requirement_pre_task_name = \
     "Verify Ansible meets SCAP-Security-Guide version requirements."
-standard_profiles = ['standard', 'pci-dss', 'desktop', 'server']
+standard_profiles = ['standard', 'pci-dss', 'desktop', 'server', 'ccs_centos7']
 
 
 OVAL_SUB_NS = dict(
@@ -140,6 +141,7 @@ PKG_MANAGER_TO_CONFIG_FILE = {
 }
 
 FULL_NAME_TO_PRODUCT_MAPPING = {
+    "Amazon Linux 2": 'al2',
     "Chromium": "chromium",
     "Debian 9": "debian9",
     "Debian 10": "debian10",
@@ -164,6 +166,7 @@ FULL_NAME_TO_PRODUCT_MAPPING = {
     "SUSE Linux Enterprise 15": "sle15",
     "Ubuntu 16.04": "ubuntu1604",
     "Ubuntu 18.04": "ubuntu1804",
+    "Ubuntu 20.04": "ubuntu2004",
     "WRLinux 8": "wrlinux8",
     "WRLinux 1019": "wrlinux1019",
 }
@@ -179,10 +182,11 @@ REF_PREFIX_MAP = {
     "stigid": "DISA-STIG",
 }
 
-MULTI_PLATFORM_LIST = ["rhel", "fedora", "rhosp", "rhv", "debian", "ubuntu",
-                       "wrlinux", "opensuse", "sle", "ol", "ocp", "rhcos", "example"]
+MULTI_PLATFORM_LIST = ["amazon", "rhel", "fedora", "rhosp", "rhv", "debian", "ubuntu",
+                       "wrlinux", "opensuse", "sle", "ol", "ocp", "rhcos", "example", "centos"]
 
 MULTI_PLATFORM_MAPPING = {
+    "multi_platform_amazon": ["al2"],
     "multi_platform_debian": ["debian9", "debian10"],
     "multi_platform_example": ["example"],
     "multi_platform_fedora": ["fedora"],
@@ -194,7 +198,7 @@ MULTI_PLATFORM_MAPPING = {
     "multi_platform_rhosp": ["rhosp10", "rhosp13"],
     "multi_platform_rhv": ["rhv4"],
     "multi_platform_sle": ["sle12", "sle15"],
-    "multi_platform_ubuntu": ["ubuntu1604", "ubuntu1804"],
+    "multi_platform_ubuntu": ["ubuntu1604", "ubuntu1804", "ubuntu2004"],
     "multi_platform_wrlinux": ["wrlinux8", "wrlinux1019"],
 }
 
@@ -340,6 +344,7 @@ XCCDF_PLATFORM_TO_PACKAGE = {
 
 # _version_name_map = {
 MAKEFILE_ID_TO_PRODUCT_MAP = {
+    'al': 'Amazon Linux'
     'chromium': 'Google Chromium Browser',
     'fedora': 'Fedora',
     'firefox': 'Mozilla Firefox',
