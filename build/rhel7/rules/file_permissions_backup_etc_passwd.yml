@@ -1,0 +1,34 @@
+conflicts: []
+description: '
+
+  To properly set the permissions of <code>/etc/passwd-</code>, run the command:
+
+  <pre>$ sudo chmod 0644 /etc/passwd-</pre>'
+identifiers: {cce: CCE-83331-9}
+inherited_platforms: [null]
+ocil: 'To check the permissions of <code>/etc/passwd-</code>, run the command:
+
+  <pre>$ ls -l /etc/passwd-</pre>
+
+  If properly configured, the output should indicate the following permissions:
+
+  <code>-rw-r--r--</code>'
+ocil_clause: /etc/passwd- has unix mode -rw-r--r--
+oval_external_content: null
+platform: null
+prodtype: all
+rationale: 'The <tt>/etc/passwd-</tt> file is a backup file of <tt>/etc/passwd</tt>,
+  and as such,
+
+  it contains information about the users that are configured on the system.
+
+  Protection of this file is critical for system security.'
+references: {cis: 6.1.6}
+requires: []
+severity: medium
+template:
+  backends: {}
+  name: file_permissions
+  vars: {filemode: '0644', filepath: /etc/passwd-, missing_file_pass: 'true'}
+title: Verify Permissions on Backup passwd File
+warnings: []

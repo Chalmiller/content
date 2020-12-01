@@ -1,0 +1,17 @@
+# platform = multi_platform_all
+# complexity = low
+# reboot = false
+# disruption = low
+# strategy = enable
+- name: Ensure rng-tools is installed
+  package:
+    name: rng-tools
+    state: present
+  tags:
+    - CCE-82969-7
+    - enable_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+    - package_rng-tools_installed

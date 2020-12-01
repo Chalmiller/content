@@ -9,7 +9,6 @@
 rpmbuild
 scap-security-guide.spec
 container_build/
-build/
 
 # Ignore docs tmp directories
 docs/Developer_Guide/tmp

@@ -1,0 +1,17 @@
+# platform = multi_platform_all
+# complexity = low
+# reboot = false
+# disruption = low
+# strategy = enable
+- name: Ensure vim is installed
+  package:
+    name: vim
+    state: present
+  tags:
+    - CCE-82957-2
+    - enable_strategy
+    - low_complexity
+    - low_disruption
+    - low_severity
+    - no_reboot_needed
+    - package_vim_installed

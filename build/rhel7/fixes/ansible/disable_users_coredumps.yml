@@ -1,0 +1,32 @@
+# platform = multi_platform_all
+# complexity = low
+# reboot = false
+# disruption = low
+# strategy = restrict
+- package_facts:
+    manager: auto
+  name: Gather the package facts
+  tags:
+    - CCE-80169-6
+    - disable_users_coredumps
+    - low_complexity
+    - low_disruption
+    - no_reboot_needed
+    - restrict_strategy
+    - unknown_severity
+
+- name: disable core dumps with limits
+  lineinfile:
+    dest: /etc/security/limits.conf
+    regexp: ^[^#].*core
+    line: '*        hard       core      0'
+    create: true
+  when: '"pam" in ansible_facts.packages'
+  tags:
+    - CCE-80169-6
+    - disable_users_coredumps
+    - low_complexity
+    - low_disruption
+    - no_reboot_needed
+    - restrict_strategy
+    - unknown_severity

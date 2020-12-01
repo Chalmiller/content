@@ -1,0 +1,26 @@
+# platform = multi_platform_all
+# complexity = low
+# strategy = enable
+# reboot = false
+# disruption = low
+- name: Install Smart Card Packages For Multifactor Authentication
+  hosts: '@@HOSTS@@'
+  become: true
+  tags:
+    - CCE-80519-2
+    - DISA-STIG-RHEL-07-041001
+    - NIST-800-53-CM-6(a)
+    - enable_strategy
+    - install_smartcard_packages
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+  tasks:
+
+    - name: Ensure pam_pkcs11 is installed
+      package:
+        name: pam_pkcs11
+        state: present
+      when: ansible_virtualization_type not in ["docker", "lxc", "openvz", "podman",
+        "container"]

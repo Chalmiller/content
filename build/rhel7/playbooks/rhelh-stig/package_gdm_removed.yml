@@ -1,0 +1,29 @@
+# platform = multi_platform_all
+# complexity = low
+# strategy = disable
+# reboot = false
+# disruption = low
+- name: Remove the GDM Package Group
+  hosts: '@@HOSTS@@'
+  become: true
+  tags:
+    - CCE-82348-4
+    - NIST-800-53-CM-6(a)
+    - NIST-800-53-CM-7(a)
+    - NIST-800-53-CM-7(b)
+    - disable_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+    - package_gdm_removed
+  tasks:
+    - package_facts:
+        manager: auto
+      name: Gather the package facts
+
+    - name: Ensure gdm is removed
+      package:
+        name: gdm
+        state: absent
+      when: '"gdm" in ansible_facts.packages'

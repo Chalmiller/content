@@ -24,7 +24,7 @@ selections:
     - kernel_module_udf_disabled
     - mount_option_dev_shm_nodev
     - mount_option_dev_shm_nosuid
-    - mount_option_dev_shm_noexec
+    # - mount_option_dev_shm_noexec
     - mount_option_nodev_removable_partitions
     - mount_option_nosuid_removable_partitions
     - mount_option_noexec_removable_partitions
@@ -37,7 +37,7 @@ selections:
     - disable_users_coredumps
     - sysctl_kernel_randomize_va_space
     - disable_prelink
-    - banner_etc_issue
+    # - banner_etc_issue
     - service_tftp_disabled
     - service_xinetd_disabled
     - service_avahi-daemon_disabled
@@ -80,7 +80,7 @@ selections:
     - sysctl_net_ipv6_conf_all_accept_redirects
     - sysctl_net_ipv6_conf_default_accept_redirects
     - package_tcp_wrappers_installed
-    - configure_etc_hosts_deny
+    # - configure_etc_hosts_deny
     - file_owner_etc_hosts_allow
     - file_owner_etc_hosts_deny
     - file_groupowner_etc_hosts_deny
@@ -91,9 +91,9 @@ selections:
     - package_iptables_installed
     - wireless_disable_interfaces
     - service_rsyslog_enabled
-    - rsyslog_files_permissions
+    # - rsyslog_files_permissions
     - package_rsyslog_installed
-    - ensure_logrotate_activated
+    # - ensure_logrotate_activated
     - service_crond_enabled
     - file_groupowner_crontab
     - file_groupowner_cron_hourly
@@ -109,18 +109,18 @@ selections:
     - sshd_max_auth_tries_value=4
     - sshd_disable_rhosts
     - disable_host_auth
-    - sshd_disable_root_login
+    # - sshd_disable_root_login
     - sshd_disable_empty_passwords
     - sshd_do_not_permit_user_env
-    - sshd_use_approved_macs
-    - sshd_set_idle_timeout
-    - sshd_limit_user_access
-    - sshd_enable_warning_banner
+    # - sshd_use_approved_macs
+    # - sshd_set_idle_timeout
+    # - sshd_limit_user_access
+    # - sshd_enable_warning_banner
     - accounts_password_pam_retry
     - var_accounts_passwords_pam_faillock_unlock_time=900
     - var_password_pam_unix_remember=5
     - set_password_hashing_algorithm_systemauth
-    - accounts_passwords_pam_faillock_deny
+    # - accounts_passwords_pam_faillock_deny
     - no_shelllogin_for_systemaccounts
     - accounts_umask_etc_bashrc
     - accounts_umask_etc_profile
@@ -132,7 +132,7 @@ selections:
     - file_owner_backup_etc_shadow
     - file_owner_backup_etc_group
     - file_owner_backup_etc_gshadow
-    - file_permissions_unauthorized_world_writable
+    # - file_permissions_unauthorized_world_writable
     - no_files_unowned_by_user
     - file_permissions_ungroupowned
     - file_permissions_unauthorized_suid

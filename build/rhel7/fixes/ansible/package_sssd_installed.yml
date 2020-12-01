@@ -1,0 +1,32 @@
+# platform = multi_platform_all
+# complexity = low
+# reboot = false
+# disruption = low
+# strategy = enable
+- package_facts:
+    manager: auto
+  name: Gather the package facts
+  tags:
+    - CCE-80362-7
+    - NIST-800-53-CM-6(a)
+    - enable_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+    - package_sssd_installed
+
+- name: Ensure sssd is installed
+  package:
+    name: sssd
+    state: present
+  when: '"sssd-common" in ansible_facts.packages'
+  tags:
+    - CCE-80362-7
+    - NIST-800-53-CM-6(a)
+    - enable_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+    - package_sssd_installed

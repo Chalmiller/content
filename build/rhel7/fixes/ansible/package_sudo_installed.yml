@@ -1,0 +1,18 @@
+# platform = multi_platform_all
+# complexity = low
+# reboot = false
+# disruption = low
+# strategy = enable
+- name: Ensure sudo is installed
+  package:
+    name: sudo
+    state: present
+  tags:
+    - CCE-82213-0
+    - NIST-800-53-CM-6(a)
+    - enable_strategy
+    - low_complexity
+    - low_disruption
+    - medium_severity
+    - no_reboot_needed
+    - package_sudo_installed

@@ -1,0 +1,27 @@
+conflicts: []
+description: ' To properly set the owner of <code>/etc/group-</code>, run the command:
+  <pre>$ sudo chown root /etc/group- </pre>'
+identifiers: {cce: CCE-83472-1}
+inherited_platforms: [null]
+ocil: 'To check the ownership of <code>/etc/group-</code>, run the command: <pre>$
+  ls -lL /etc/group-</pre> If properly configured, the output should indicate the
+  following owner: <code>root</code>'
+ocil_clause: /etc/group- has owner root
+oval_external_content: null
+platform: null
+prodtype: all
+rationale: 'The <tt>/etc/group-</tt> file is a backup file of <tt>/etc/group</tt>,
+  and as such,
+
+  it contains information regarding groups that are configured on the system.
+
+  Protection of this file is important for system security.'
+references: {cis: 6.1.8}
+requires: []
+severity: medium
+template:
+  backends: {}
+  name: file_owner
+  vars: {filepath: /etc/group-, fileuid: '0', missing_file_pass: 'true'}
+title: Verify User Who Owns Backup group File
+warnings: []

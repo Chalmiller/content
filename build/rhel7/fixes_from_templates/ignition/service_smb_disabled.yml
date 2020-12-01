@@ -1,0 +1,21 @@
+# platform = multi_platform_ocp,multi_platform_rhcos
+# reboot = true
+# strategy = disable
+# complexity = low
+# disruption = medium
+apiVersion: machineconfiguration.openshift.io/v1
+kind: MachineConfig
+spec:
+  config:
+    ignition:
+      version: 2.2.0
+    systemd:
+      units:
+      - name: smb.service
+        enabled: false
+        mask: true
+        state: stopped
+      - name: smb.socket
+        enabled: false
+        mask: true
+        state: stopped

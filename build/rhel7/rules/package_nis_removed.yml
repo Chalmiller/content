@@ -1,0 +1,23 @@
+conflicts: []
+description: The support for Yellowpages should not be installed unless it is required.
+identifiers: {}
+inherited_platforms: [null]
+ocil: null
+ocil_clause: null
+oval_external_content: null
+platform: null
+prodtype: all
+rationale: 'NIS is the historical SUN service for central account management, more
+  and more replaced by LDAP.
+
+  NIS does not support efficiently security constraints, ACL, etc. and should not
+  be used.'
+references: {}
+requires: []
+severity: low
+template:
+  backends: {}
+  name: package_removed
+  vars: {pkgname: nis}
+title: Uninstall the nis package
+warnings: []
