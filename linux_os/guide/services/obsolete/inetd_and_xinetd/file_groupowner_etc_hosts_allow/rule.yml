@@ -1,6 +1,6 @@
 documentation_complete: true
 
-prodtype: ol7,rhel7
+prodtype: amzn2,ol7,rhel7
 
 title: 'Verify Group Ownership of /etc/hosts.allow'
 

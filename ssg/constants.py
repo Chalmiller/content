@@ -5,26 +5,10 @@ import datetime
 import os.path
 
 product_directories = [
-    'amazonlinux2',
-    'chromium',
-    'debian9', 'debian10',
+    'amzn2',
     'example',
-    'fedora',
-    'firefox',
-    'fuse6',
-    'jre',
-    'macos1015',
-    'ocp4',
-    'rhcos4',
-    'ol7', 'ol8',
-    'opensuse',
     'rhel7', 'rhel8',
-    'rhosp10', 'rhosp13',
-    'rhv4',
-    'sle12', 'sle15',
-    'ubuntu1604', 'ubuntu1804', 'ubuntu2004',
-    'vsel',
-    'wrlinux8', 'wrlinux1019'
+    'ubuntu1804', 'ubuntu2004',
 ]
 
 JINJA_MACROS_BASE_DEFINITIONS = os.path.join(os.path.dirname(os.path.dirname(
@@ -80,7 +64,7 @@ XCCDF12_NS = "http://checklists.nist.gov/xccdf/1.2"
 min_ansible_version = "2.5"
 ansible_version_requirement_pre_task_name = \
     "Verify Ansible meets SCAP-Security-Guide version requirements."
-standard_profiles = ['standard', 'pci-dss', 'desktop', 'server', 'ccs_centos7']
+standard_profiles = ['standard', 'pci-dss', 'desktop', 'server', 'ccs_centos7', 'ccs_centos8']
 
 
 OVAL_SUB_NS = dict(
@@ -141,7 +125,7 @@ PKG_MANAGER_TO_CONFIG_FILE = {
 }
 
 FULL_NAME_TO_PRODUCT_MAPPING = {
-    "Amazon Linux 2": 'al2',
+    "Amazon Linux 2": "amzn2",
     "Chromium": "chromium",
     "Debian 9": "debian9",
     "Debian 10": "debian10",
@@ -182,11 +166,11 @@ REF_PREFIX_MAP = {
     "stigid": "DISA-STIG",
 }
 
-MULTI_PLATFORM_LIST = ["amazon", "rhel", "fedora", "rhosp", "rhv", "debian", "ubuntu",
+MULTI_PLATFORM_LIST = ["amzn", "rhel", "fedora", "rhosp", "rhv", "debian", "ubuntu",
                        "wrlinux", "opensuse", "sle", "ol", "ocp", "rhcos", "example", "centos"]
 
 MULTI_PLATFORM_MAPPING = {
-    "multi_platform_amazon": ["al2"],
+    "multi_platform_amzn": ["amzn2"],
     "multi_platform_debian": ["debian9", "debian10"],
     "multi_platform_example": ["example"],
     "multi_platform_fedora": ["fedora"],
@@ -344,7 +328,7 @@ XCCDF_PLATFORM_TO_PACKAGE = {
 
 # _version_name_map = {
 MAKEFILE_ID_TO_PRODUCT_MAP = {
-    'al': 'Amazon Linux',
+    'amzn': 'Amazon Linux',
     'chromium': 'Google Chromium Browser',
     'fedora': 'Fedora',
     'firefox': 'Mozilla Firefox',

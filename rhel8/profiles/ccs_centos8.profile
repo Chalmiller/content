@@ -6,19 +6,19 @@ metadata:
         - vojtapolasek
         - yuumasato
 
-reference: https://www.cisecurity.org/benchmark/red_hat_linux/
+reference: https://www.cisecurity.org/cis-benchmarks/#red_hat_linux/
 
-title: 'Comcast Security Profile for CentOS8'
+title: 'Comcast Security Profile for RHEL8'
 
 description: |-
-    Comcast Security Profile for CentOS7
+    Comcast Security Profile for RHEL8
 
 selections:
     # Necessary for dconf rules
     - dconf_db_up_to_date
 
     ### Partitioning
-    - mount_option_home_nodev
+    # - mount_option_home_nodev
 
     ## 1.1 Filesystem Configuration
 
@@ -43,7 +43,7 @@ selections:
     - mount_option_dev_shm_nosuid
 
     ### 1.1.17 Ensure noexec option set on /dev/shm partition (Scored)
-    - mount_option_dev_shm_noexec
+    # - mount_option_dev_shm_noexec
 
     ### 1.1.18 Ensure nodev option set on removable media partitions (Not Scored)
     - mount_option_nodev_removable_partitions
@@ -107,10 +107,10 @@ selections:
     - sysctl_fs_suid_dumpable
 
     #### ProcessSizeMax=0
-    - coredump_disable_backtraces
+    # - coredump_disable_backtraces
 
     #### Storage=none
-    - coredump_disable_storage
+    # - coredump_disable_storage
 
     ### 1.6.2 Ensure address space layout randomization (ASLR) is enabled
     - sysctl_kernel_randomize_va_space
@@ -120,7 +120,7 @@ selections:
     ### 1.8.1 Command Line Warning Baners
 
     #### 1.8.1.2 Ensure local login warning banner is configured properly (Scored)
-    - banner_etc_issue
+    # - banner_etc_issue
 
     #### 1.8.1.3 Ensure remote login warning banner is configured properly (Scored)
     # NEEDS RULE - https://github.com/ComplianceAsCode/content/issues/5225
@@ -153,7 +153,7 @@ selections:
     #### 2.2.1.2 Ensure chrony is configured (Scored)
     - service_chronyd_enabled
     - chronyd_specify_remote_server
-    - chronyd_run_as_chrony_user
+    # - chronyd_run_as_chrony_user
 
     ### 2.2.2 Ensure X Window System is not installed (Scored)
     - package_xorg-x11-server-common_removed
@@ -190,7 +190,7 @@ selections:
     - service_nfs_disabled
 
     ### 2.2.13 Ensure RPC is not enabled (Scored)
-    - service_rpcbind_disabled
+    # - service_rpcbind_disabled
 
     ### 2.2.14 Ensure LDAP service is not enabled (Scored)
     # NEEDS RULE - https://github.com/ComplianceAsCode/content/issues/5231
@@ -326,7 +326,7 @@ selections:
     - service_rsyslog_enabled
 
     #### 4.2.1.3 Ensure rsyslog default file permissions configured (Scored)
-    - rsyslog_files_permissions
+    # - rsyslog_files_permissions
 
     #### 4.2.1.4 Ensure logging is configured (Not Scored)
     # NEEDS RULE - https://github.com/ComplianceAsCode/content/issues/5519
@@ -335,7 +335,7 @@ selections:
     # NEEDS RULE - https://github.com/ComplianceAsCode/content/issues/5523
 
     ## 4.3 Ensure logrotate is conifgured (Not Scored)
-    - ensure_logrotate_activated
+    # - ensure_logrotate_activated
 
     # 5 Access, Authentication and Authorization
 
@@ -398,7 +398,7 @@ selections:
     - file_groupowner_sshd_config
 
     # chmod og-rwx /etc/ssh/sshd_config
-    - file_permissions_sshd_config
+    # - file_permissions_sshd_config
 
     ### 5.2.2 Ensure SSH access is limited (Scored) 
 
@@ -419,7 +419,7 @@ selections:
     - disable_host_auth
 
     ### 5.2.10 Ensure SSH root login is disabled (Scored)
-    - sshd_disable_root_login
+    # - sshd_disable_root_login
 
     ### 5.2.11 Ensure SSH PermitEmptyPasswords is disabled (Scored)
     - sshd_disable_empty_passwords
@@ -429,20 +429,20 @@ selections:
 
     ### 5.2.13 Ensure SSH Idle Timeout Interval is configured (Scored)
     # ClientAliveInterval 300
-    - sshd_idle_timeout_value=5_minutes
-    - sshd_set_idle_timeout
+    # - sshd_idle_timeout_value=5_minutes
+    # - sshd_set_idle_timeout
 
     # ClientAliveCountMax 0
     - sshd_set_keepalive
 
     ### 5.2.15 Ensure SSH warning banner is configured (Scored)
-    - sshd_enable_warning_banner
+    # - sshd_enable_warning_banner
 
     ### 5.2.16 Ensure SSH PAM is enabled (Scored)
     # NEEDS RULE - https://github.com/ComplianceAsCode/content/issues/5526
 
     ### 5.2.17 Ensure SSH AllowTcpForwarding is disabled (Scored)
-    - sshd_disable_tcp_forwarding
+    # - sshd_disable_tcp_forwarding
 
     ### 5.2.18 Ensure SSH MaxStarups is configured (Scored)
     # NEEDS RULE - https://github.com/ComplianceAsCode/content/issues/5528
@@ -451,22 +451,22 @@ selections:
 
     ### 5.4.1 Ensure password creation requirements are configured (Scored)
     # NEEDS RULE: try_first_pass - https://github.com/ComplianceAsCode/content/issues/5533
-    - accounts_password_pam_retry
-    - var_password_pam_minlen=14
-    - accounts_password_pam_minlen
-    - var_password_pam_minclass=4
-    - accounts_password_pam_minclass
+    # - accounts_password_pam_retry
+    # - var_password_pam_minlen=14
+    # - accounts_password_pam_minlen
+    # - var_password_pam_minclass=4
+    # - accounts_password_pam_minclass
 
     ### 5.4.2 Ensure lockout for failed password attempts is
     ###       configured (Scored)
-    - var_accounts_passwords_pam_faillock_unlock_time=900
-    - var_accounts_passwords_pam_faillock_deny=5
-    - accounts_passwords_pam_faillock_unlock_time
-    - accounts_passwords_pam_faillock_deny
+    # - var_accounts_passwords_pam_faillock_unlock_time=900
+    # - var_accounts_passwords_pam_faillock_deny=5
+    # - accounts_passwords_pam_faillock_unlock_time
+    # - accounts_passwords_pam_faillock_deny
 
     ### 5.4.3 Ensure password reuse is limited (Scored)
-    - var_password_pam_unix_remember=5
-    - accounts_password_pam_unix_remember
+    # - var_password_pam_unix_remember=5
+    # - accounts_password_pam_unix_remember
 
     ### 5.4.4 Ensure password hashing algorithm is SHA-512 (Scored)
     - set_password_hashing_algorithm_systemauth
@@ -477,8 +477,8 @@ selections:
 
     #### 5.5.1.2 Ensure minimum days between password changes is 7
     ####         or more (Scored)
-    - var_accounts_minimum_age_login_defs=7
-    - accounts_minimum_age_login_defs
+    # - var_accounts_minimum_age_login_defs=7
+    # - accounts_minimum_age_login_defs
 
     #### 5.5.1.3 Ensure password expiration warning days is
     ####         7 or more (Scored)
@@ -573,13 +573,13 @@ selections:
     - file_permissions_backup_etc_gshadow
 
     ### 6.1.10 Ensure no world writable files exist (Scored)
-    - file_permissions_unauthorized_world_writable
+    # - file_permissions_unauthorized_world_writable
 
     ### 6.1.11 Ensure no unowned files or directories exist (Scored)
     - no_files_unowned_by_user
 
     ### 6.1.12 Ensure no ungrouped files or directories exist (Scored)
-    - file_permissions_ungroupowned
+    # - file_permissions_ungroupowned
 
     ### 6.1.13 Audit SUID executables (Not Scored)
     - file_permissions_unauthorized_suid
